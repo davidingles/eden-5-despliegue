@@ -1,0 +1,114 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { ServiciosCarruselReact2 } from '@/components/ServiciosCarruselReact2.jsx'
+import TextoAnimadoTelefono from '@/components/botones/TextoAnimadoTelefono.astro'
+import Logo from '@/components/icons/LogoMaps.astro'
+
+const cielo2 = '/videos/diseñando.mp4'
+const nave = '/videos/admi.mp4'
+const lunes = '/videos/camion.mp4'
+const nav = '/videos/cajas-en-movimiento.mp4'
+
+const naveThumb = '/thumbnails_videos/diseño.png'
+const naveThumb1 = '/thumbnails_videos/administracion.png'
+const naveThumb2 = '/thumbnails_videos/logistica.png'
+const naveThumb3 = '/thumbnails_videos/ventas.png'
+
+// const textos = [
+// 	'Empresa fundada en 1995, avalada con una gran experiencia en el sector del cartón.',
+// 	'Auxiliar Manipuladora del Cartón va evolucionando para cubrir las necesidades de sus clientes',
+// 	'Todas las personas que trabajan directa o indirectamente tienen el espíritu de aceptar los retos para adaptarse aun mercado más competitivo y exigente.',
+// 	'Tras la incorporación de nuevas generaciones seguiremos avanzando juntos.',
+// ]
+const textos2 = {
+	ventas: {
+		dep: 'Ventas',
+		email: 'ventas@laauxiliar.es',
+		nombre: 'Miguel Ángel Latorre',
+		telefono: '686 944 933',
+	},
+	diseño: {
+		dep: 'Diseño',
+		email: 'dg@laauxiliar.es',
+		nombre: 'Vicente Latorre',
+		telefono: '657 842 909',
+	},
+	logistica: {
+		dep: 'Logística',
+		email: 'logistica@laauxiliar.es',
+		nombre: 'Ángel Latorre',
+		telefono: '657 803 024',
+	},
+	admin: {
+		dep: 'Administración',
+		email: 'administracion@laauxiliar.es',
+		nombre: 'Jesús Latorre',
+		telefono: '686 944 932',
+	},
+}
+const claves = ['ventas', 'diseño', 'logistica', 'admin']
+---
+
+<Layout title='Sobre nosotros'>
+	<main class='flex flex-col gap-4'>
+		<div
+			class='bodyIndex bg-gray-400 leading-8 text-white font-bold text-lg flex justify-center items-center w-full'
+		>
+			<section class='flex flex-col md:flex-row pr-12'>
+				<h3 class='translate-x-4 pr-4'>Llámanos al teléfono:</h3>
+				<span class='translate-x-4'>
+					<TextoAnimadoTelefono />
+				</span>
+			</section>
+			<section class='flex items-center'>
+				<span class=''> Encuéntranos en el mapa:</span>
+				<a
+					class='spin p-4 blend text-blue-500 mix-blend-multiply'
+					target='_blank'
+					href='https://maps.app.goo.gl/QZcyPLooNu41XfmS6'
+				>
+					<Logo
+						style='width:33px'
+						fill='fill:currentColor;'
+					/>
+				</a>
+			</section>
+		</div>
+		<div
+			class='bodyIndex rounded-lg flex overflow-y-auto justify-center items-center'
+		>
+			<ServiciosCarruselReact2
+				client:load
+				cielo2={cielo2}
+				nave={nave}
+				lunes={lunes}
+				nav={nav}
+				video={true}
+				naveThumb={naveThumb}
+				naveThumb1={naveThumb1}
+				naveThumb2={naveThumb2}
+				naveThumb3={naveThumb3}
+				claves={claves}
+				textos2={textos2}
+			/>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	@keyframes spin {
+		0% {
+			transform: rotateY(0deg);
+		}
+		100% {
+			transform: rotateY(1turn);
+		}
+	}
+
+	.spin {
+		animation: spin 6s linear infinite;
+	}
+	:global(.light) .bodyIndex {
+		color: #333;
+	}
+</style>

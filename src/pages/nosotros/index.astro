@@ -1,0 +1,40 @@
+---
+import Layout from '@/layouts/Layout.astro'
+import { ServiciosCarruselReact2 } from '@/components/ServiciosCarruselReact2.jsx'
+
+const cielo2 = '/img/cielo2.jpg'
+const nave = '/img/nave.jpg'
+const lunes = '/img/lunes.jpg'
+const nav = '/img/nav.jpg'
+
+const naveThumb = '/img/cielo2.jpg'
+const naveThumb1 = '/img/nave.jpg'
+const naveThumb2 = '/img/lunes.jpg'
+const naveThumb3 = '/img/nav.jpg'
+const textos = [
+	'Empresa fundada en 1995, avalada con una gran experiencia en el sector del cartón.',
+	'Auxiliar Manipuladora del Cartón va evolucionando para cubrir las necesidades de sus clientes',
+	'Todas las personas que trabajan directa o indirectamente tienen el espíritu de aceptar los retos para adaptarse aun mercado más competitivo y exigente.',
+	'Tras la incorporación de nuevas generaciones seguiremos avanzando juntos.',
+]
+---
+
+<Layout title='Sobre nosotros'>
+	<div class='rounded-lg flex justify-center items-center overflow-y-auto'>
+		<ServiciosCarruselReact2
+		client:load
+
+			cielo2={cielo2}
+			nave={nave}
+			lunes={lunes}
+			nav={nav}
+			video={true}
+			naveThumb={naveThumb}
+			naveThumb1={naveThumb1}
+			naveThumb2={naveThumb2}
+			naveThumb3={naveThumb3}
+			textos={textos}
+		/>
+	</div>
+</Layout>
+
