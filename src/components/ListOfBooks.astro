@@ -1,0 +1,154 @@
+---
+import BookItem from './BookItem.astro'
+import { books } from '../data/books.js'
+import BtnEstrellasEstuches from '../components/botones/BtnEstrellasEstuches.astro'
+import BtnEstrellasExpositores from '../components/botones/BtnEstrellasExpositores.astro'
+import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
+---
+
+<script is:inline>
+	document.addEventListener('DOMContentLoaded', (event) => {
+		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+			anchor.addEventListener('click', function (e) {
+				e.preventDefault()
+
+				document.querySelector(this.getAttribute('href')).scrollIntoView({
+					behavior: 'smooth',
+				})
+			})
+		})
+	})
+</script>
+
+<div class='mt-10 mb-2 flex flex-col md:flex-row'>
+	<a
+		class='opts p-4'
+		href='#estuches'
+	>
+		<BtnEstrellasEstuches />
+	</a>
+	<a
+		class='opts p-4'
+		href='#cajas'
+	>
+		<BtnEstrellasCajas />
+	</a>
+	<a
+		class='opts p-4'
+		href='#expositores'
+	>
+		<BtnEstrellasExpositores />
+	</a>
+</div>
+<div
+	id='estuches'
+	class='grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto mt-24'
+>
+	{
+		books
+			.filter((book) => book.categoria === 'Bandejas')
+			.map((book) => {
+				return (
+					<ul class='card aspect-square rounded-lg'>
+						<BookItem
+							id={book.id}
+							title={book.title}
+							img={book.img}
+							three={book.three}
+						/>
+					</ul>
+				)
+			})
+	}
+</div>
+
+<div
+	id='cajas'
+	class='grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto mt-24'
+>
+	{
+		books
+			.filter((book) => book.categoria === 'Cajas')
+			.map((book) => {
+				return (
+					<ul class='card'>
+						<BookItem
+							id={book.id}
+							title={book.title}
+							img={book.img}
+							three={book.three}
+						/>
+					</ul>
+				)
+			})
+	}
+</div>
+
+<div
+	id='expositores'
+	class='grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto mt-24 mb-12'
+>
+	{
+		books
+			.filter((book) => book.categoria === 'expositor')
+			.map((book) => {
+				return (
+					<ul class='card'>
+						<BookItem
+							id={book.id}
+							title={book.title}
+							img={book.img}
+							three={book.three}
+						/>
+					</ul>
+				)
+			})
+	}
+</div>
+<style>
+	.card {
+		width: auto;
+		height: auto;
+		box-shadow:
+			8px 8px 15px rgba(30, 30, 30, 0.5),
+			-8px -8px 8px rgba(30, 30, 30, 0.5);
+	}
+	.card:hover {
+		transition: all 0.3s ease-in-out;
+		transform: translateY(-5px);
+		filter: brightness(1.05);
+		box-shadow:
+			3px 3px 5px #000,
+			-3px -3px 5px #000;
+	}
+
+	/* :global(.light) .card {
+		box-shadow:
+			8px 8px 15px #bebebe,
+			-8px -8px 15px #ffffff;
+	}
+	:global(.light) .card:hover {
+		transition: all 0.3s ease-in-out;
+		transform: translateY(-5px);
+		filter: brightness(1.05);
+		box-shadow:
+			3px 3px 5px #9d9d9d,
+			-3px -3px 5px #ffffff;
+	} */
+
+	.opts {
+		color: white;
+		font-weight: bold;
+	}
+	.opts:hover {
+		text-decoration: underline;
+	}
+	/* :global(.light) .opts {
+		color: #555;
+	}
+	:global(.light) .opts:hover {
+		color: #000;
+		font-weight: bold;
+		text-decoration: underline;
+	} */
+</style>

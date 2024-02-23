@@ -1,0 +1,243 @@
+---
+import { ViewTransitions } from 'astro:transitions'
+import FooterMenu from '@/components/FooterMenu.astro'
+import Footer from '@/components/Footer.astro'
+import HeaderMenu from '@/components/HeaderMenu.astro'
+import { View } from '@react-three/drei'
+interface Props {
+	title: string
+}
+
+const { title } = Astro.props
+---
+
+<!doctype html>
+<html lang='es'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta
+			name='description'
+			content='Astro description'
+		/>
+		<meta
+			name='viewport'
+			content='width=device-width'
+		/>
+		<link
+			rel='icon'
+			type='image/svg+xml'
+			href='/svg/favicon.auxiliar.svg'
+		/>
+		<meta
+			name='generator'
+			content={Astro.generator}
+		/>
+		<title>{title}</title>
+		<ViewTransitions />
+	</head>
+
+	<body
+		class='body dil-barra-desplazamiento flex flex-col min-h-screen w-full overflow-y-auto justify-center items-center rounded-lg p-4'
+	>
+		<!-- <div class='toggle'>
+			<ToggleTheme />
+		</div> -->
+		<slot />
+		<style is:global>
+			:root {
+				--auxi1: rgb(222, 171, 18);
+				--auxi2: rgb(0, 128, 72);
+				--degraUno: linear-gradient(
+					45deg,
+					rgb(222, 171, 18, 0.2),
+					rgb(22, 24, 24),
+					rgb(0, 128, 72, 0.1)
+				);
+				--degraDos: linear-gradient(
+					45deg,
+					rgb(222, 171, 18, 0.1),
+					rgb(255, 255, 255),
+					rgb(222, 171, 18, 0.1)
+				);
+			}
+			html {
+				font-family: 'CircularStd', system-ui, sans-serif;
+				background-color: #222;
+				color: white;
+				background-size: 224px;
+			}
+			.body {
+				display: flex;
+			}
+			.light .body {
+				background-color: white;
+				color: black;
+			}
+			.asideMenu {
+				height: calc(100vh - 104px);
+			}
+
+			.bordeRojo {
+				border: 1px solid red;
+			}
+			.tipografia1 {
+				font-family: 'ErasITC', 'CircularStd', system-ui, sans-serif;
+			}
+			.tipografía2 {
+				font-family: 'CircularStd', system-ui, sans-serif;
+			}
+			.bordeVerde {
+				border: 1px solid green;
+			}
+			.colorUno {
+				color: var(--auxi1);
+			}
+			.colorDos {
+				color: var(--auxi2);
+			}
+			.bordeRojo {
+				border: 1px solid red;
+			}
+			.tipografia1 {
+				font-family: 'ErasITC', 'CircularStd', system-ui, sans-serif;
+			}
+			.tipografía2 {
+				font-family: 'CircularStd', system-ui, sans-serif;
+			}
+			.bordeVerde {
+				border: 1px solid green;
+			}
+			.colorUno {
+				color: var(--auxi1);
+			}
+			.colorDos {
+				color: var(--auxi2);
+			}
+
+			@font-face {
+				font-family: 'ErasITC';
+				src: url('/fonts/ITC Eras Demi.ttf'); /* format('ttf'); */
+				/* font-style: normal;
+		font-display: swap; */
+			}
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Medium.woff2') format('woff2');
+				font-weight: 500;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Book.woff2') format('woff2');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Book.woff2') format('woff2');
+				font-weight: 400;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Light.woff2') format('woff2');
+				font-weight: 300;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Light.woff2') format('woff2');
+				font-weight: 300;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
+				font-weight: 700;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
+				font-weight: 700;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Black.woff2') format('woff2');
+				font-weight: 900;
+				font-style: normal;
+				font-display: swap;
+			}
+			@font-face {
+				font-family: 'CircularStd';
+				src: url('/fonts/CircularStd-Black.woff2') format('woff2');
+				font-weight: 900;
+				font-style: normal;
+				font-display: swap;
+			}
+
+			.dil-barra-desplazamiento {
+				/* Estilos de la barra de desplazamiento */
+				scrollbar-width: thin; /* Ancho de la barra de desplazamiento */
+				scrollbar-color: #a92020 #0feb03; /* Color de la barra y el fondo de la barra */
+			}
+
+			/* Estilos para la barra de desplazamiento */
+			.dil-barra-desplazamiento::-webkit-scrollbar {
+				width: 12px; /* Ancho de la barra de desplazamiento */
+			}
+			/* Estilos para la barra de desplazamiento */
+			.dil-barra-desplazamiento::-webkit-scrollbar {
+				width: 12px; /* Ancho de la barra de desplazamiento */
+			}
+
+			.dil-barra-desplazamiento::-webkit-scrollbar-thumb {
+				background-color: var(
+					--auxi1
+				); /* Color de la barra de desplazamiento */
+			}
+			.dil-barra-desplazamiento::-webkit-scrollbar-thumb {
+				background-color: var(
+					--auxi1
+				); /* Color de la barra de desplazamiento */
+			}
+
+			.dil-barra-desplazamiento::-webkit-scrollbar-track {
+				background-color: black;
+			}
+			.dil-barra-desplazamiento::-webkit-scrollbar-track {
+				background-color: black;
+			}
+
+			.light .dil-barra-desplazamiento::-webkit-scrollbar-thumb {
+				background-color: var(
+					--auxi2
+				); /* Color de la barra de desplazamiento */
+			}
+			.light .dil-barra-desplazamiento::-webkit-scrollbar-thumb {
+				background-color: var(
+					--auxi2
+				); /* Color de la barra de desplazamiento */
+			}
+
+			.light .dil-barra-desplazamiento::-webkit-scrollbar-track {
+				background-color: white;
+			}
+			.toggle {
+				display: none;
+			}
+		</style>
+	</body>
+</html>
