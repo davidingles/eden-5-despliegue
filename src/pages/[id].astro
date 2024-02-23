@@ -1,0 +1,72 @@
+---
+import { books } from '../data/books.js'
+import LayoutCatalogo from '../layouts/LayoutCatalogo.astro'
+import BtnEstrellas from '../components/botones/BtnEstrellas.astro'
+import ReactThreeModel3D from '../components/ReactThreeModel3D.jsx'
+import { fade } from 'astro:transitions'
+
+const { id } = Astro.params
+console.log(id)
+const bookData = books.find((b) => b.id === id)
+if (!bookData) {
+	return Astro.redirect('/404')
+}
+
+export function getStaticPaths() {
+	return books.map((book) => ({
+		params: {
+			id: book.id,
+		},
+	}))
+}
+---
+
+<LayoutCatalogo title={bookData.id}>
+	<main class='flex flex-col w-full relative'>
+		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
+			<nav class='flex'>
+				<a
+					id='
+					anchor'
+					href={`giro/${bookData.id}`}
+				>
+					<BtnEstrellas />
+				</a>
+				<div class='px-4'>
+					<p>{bookData.opinion}</p>
+					<span>{bookData.title}</span>
+				</div>
+			</nav>
+		</div>
+		<a
+			href={`${bookData.id}`}
+			class='absolute top-1/4 p-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 inline-block text-black text-center text-sm font-bold uppercase mt-4 bg-slate-500 bg-opacity-20 rounded-full w-auto hover:transition-all hover:bg-opacity-30 hover:text-orange-400 hover:scale-105 border border-black'
+			>VIDEO DE MONTAJE</a
+		>
+
+		<div
+			transition:name='dav'
+			transition:name='hero'
+			transition:animate={fade({ duration: '1s' })}
+			class='w-full h-screen'
+		>
+			{
+				bookData.three && (
+					<ReactThreeModel3D
+						client:load
+						escala={bookData.escala}
+						posicion={bookData.posicion}
+						url={bookData.glbSource}
+					/>
+				)
+			}
+			{
+				!bookData.three && (
+					<div class='w-full h-full flex justify-center items-center'>
+						<h1 class='text-orange-400 text-5xl'>No hay modelo 3D</h1>
+					</div>
+				)
+			}
+		</div>
+	</main>
+</LayoutCatalogo>
