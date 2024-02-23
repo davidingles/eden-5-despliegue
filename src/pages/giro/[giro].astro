@@ -1,0 +1,60 @@
+---
+import { books } from '../../data/books.js'
+import { fade } from 'astro:transitions'
+import LayoutCatalogo from '../../layouts/LayoutCatalogo.astro'
+import BtnEstrellas from '../../components/botones/BtnEstrellas.astro'
+
+const { giro } = Astro.params
+console.log(giro)
+const bookData = books.find((b) => b.id === giro)
+if (!bookData) {
+	return Astro.redirect('/404')
+}
+
+export function getStaticPaths() {
+	return books.map((book) => ({
+		params: {
+			giro: book.id,
+		},
+	}))
+}
+---
+
+<LayoutCatalogo title={bookData.id}>
+	<main class='flex flex-col w-full relative'>
+		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
+			<nav class='flex'>
+				<a
+					id='
+						anchor'
+					href='/catalogo'
+				>
+					<BtnEstrellas />
+				</a>
+				<div class='px-4'>
+					<p>{bookData.opinion}</p>
+					<p>{bookData.title}</p>
+					<p>troquel: {bookData.troquel}</p>
+				</div>
+			</nav>
+		</div>
+		<a
+			href={`/${bookData.id}`}
+			class='absolute top-1/4 p-4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-40 inline-block text-black text-center text-sm font-bold uppercase mt-4 bg-slate-500 bg-opacity-20 rounded-full w-auto hover:transition-all hover:bg-opacity-30 hover:text-orange-400 hover:scale-105 border border-black'
+			>PINCHA Y PODRÁS GIRARME</a
+		>
+
+		<div
+			transition:name='hero'
+			transition:animate={fade({ duration: '1s' })}
+		>
+			<img
+				transition:animate={fade({ duration: '1s' })}
+				transition:name='david'
+				class={`w-full h-screen object-contain`}
+				src={bookData.img}
+				alt={bookData.title}
+			/>
+		</div>
+	</main>
+</LayoutCatalogo>

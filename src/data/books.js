@@ -32,16 +32,6 @@ export const books = [
 		scaleVideo: 1.5
 
 	},
-	// {
-	// 	id: 'EstucheConAsas',
-	// 	title: 'Estuche con asas',
-	// 	img: '/catalogo/Estuche tipo ANFORA.png',
-	// 	opinion: '"Estuche practo para el transporte del usuario final',
-	// 	author: 'Vicente Latorre',
-	// 	three: 'EstucheConAsas',
-	// 	categoria: 'Bandejas'
-
-	// },
 	{
 		id: 'ExpositorDM',
 		title: 'PLV y Expositores',
