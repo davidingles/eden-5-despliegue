@@ -1,0 +1,64 @@
+---
+import LayoutCatalogo from '../../layouts/LayoutCatalogo.astro'
+import { books } from '../../data/books.js'
+import BtnEstrellas from '../../components/botones/BtnEstrellas.astro'
+import { fade } from 'astro:transitions'
+
+const { video } = Astro.params
+console.log({ video })
+const bookData = books.find((b) => b.id === video)
+if (!bookData) {
+	return Astro.redirect('/404')
+}
+
+export function getStaticPaths() {
+	return books.map((book) => ({
+		params: {
+			video: book.id,
+		},
+	}))
+}
+---
+
+<LayoutCatalogo title={bookData.three}>
+	<main class='w-full h-screen relative justify-center items-center'>
+		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
+			<nav class='flex'>
+				<a
+					id='
+					anchor'
+					href={`/${bookData.id}`}
+				>
+					<BtnEstrellas />
+				</a>
+				<div class='px-4'>
+					<p>{bookData.opinion}</p>
+					<span>{bookData.title}</span>
+				</div>
+			</nav>
+		</div>
+
+		<div
+			transition:name='hero'
+			transition:animate={fade({ duration: '1s' })}
+			class='flex justify-center items-center h-full'
+		>
+			{
+				bookData.video && (
+					<video
+						class={`object-scale-down h-[800px] w-full`}
+						src={bookData.video}
+						autoplay
+						loop
+						muted
+					/>
+				)
+			}
+			{
+				!bookData.video && (
+					<h1 class='text-orange-400 text-5xl'>No hay video</h1>
+				)
+			}
+		</div>
+	</main>
+</LayoutCatalogo>
