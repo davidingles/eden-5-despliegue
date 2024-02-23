@@ -1,0 +1,114 @@
+.mena,
+.david {
+  display: flex;
+  flex-direction: row;
+  width: 180px;
+  align-items: center;
+  border-radius: .4rem;
+  border: solid 1px black;
+  color: #ffffff;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.5s;
+  background: #252525;
+  /* box-shadow:
+    8px 8px 15px #000000,
+    -8px -8px 15px #000000; */
+}
+
+@media screen and (max-width: 768px) {
+
+  .mena,
+  .david {
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mena:hover {
+  transition: all 0.3s ease-in-out;
+  /* transform: translateY(-3px); */
+  filter: brightness(.8);
+  /* box-shadow:
+    3px 3px 5px #000000,
+    -3px -3px 5px #000000; */
+
+}
+
+.menadiv {
+  margin-top: 11px;
+  margin-bottom: 11px;
+  transition: all 0.5s;
+  position: relative;
+  transition: 0.5s;
+}
+
+.menadiv:after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  translate: 34px 0px;
+  right: 20px;
+  transition: 0.5s;
+}
+
+.menadiv:hover:after {
+  right: 0;
+  opacity: 1;
+}
+
+:global(.light) .mena {
+  border: solid 1px #ffffff;
+  background: #e0e0e0;
+  /* box-shadow:
+    15px 15px 30px #bebebe,
+    -15px -15px 30px #ffffff; */
+  color: #555;
+
+}
+
+:global(.light) .mena:hover {
+  transition: all 0.3s ease-in-out;
+  /* transform: translateY(-3px); */
+  filter: brightness(1.1);
+  /* box-shadow:
+    3px 3px 5px #bebebe,
+    -3px -3px 5px #ffffff; */
+}
+
+.nombre {
+  color: var(--auxi1);
+}
+
+:global(.light) .nombre {
+  color: var(--auxi2);
+}
+
+.david {
+  filter: brightness(1);
+  color: var(--auxi1);
+  /* box-shadow:
+    1px 1px 5px #000000,
+    -1px -1px 5px #000000; */
+  border-color: var(--auxi1);
+}
+
+:global(.light) .david {
+  filter: brightness(1.2);
+  /* color: var(--auxi1); */
+  /* color: rgb(222, 42, 42); */
+  color: rgb(0 0 0);
+  font-weight: bold;
+  /* box-shadow:
+    3px 3px 5px #bebebe,
+    -3px -3px 5px #ffffff; */
+  border-color: #888;
+}

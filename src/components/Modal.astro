@@ -1,0 +1,71 @@
+---
+import Aviso from './Aviso.astro'
+
+import BtnHover01 from '@/components/botones/BtnHover01.astro'
+---
+
+<!-- MODAL CON TODO EL PARRAFO =======================   -->
+<div
+	id='modal'
+	class='fixed z-30 top-full left-0 bg-gray-400 bg-opacity-50 backdrop-blur-sm w-full h-full border-[var(--auxi)] border-8 bottom-0'
+>
+	<div
+		id='boton'
+		class='fixed z-50 top-20 right-20'
+	>
+		<BtnHover01 />
+	</div>
+	<div class='fixed z-40 top-[20vh] right-0 left-0 w-2/3 h-[90vh] m-auto'>
+		<Aviso />
+	</div>
+</div>
+
+<!-- AVISO LEGAL ======================= -->
+
+<script>
+	const modal = document.querySelector('#modal')
+	const boton = document.querySelector('#boton')
+	const aviso = document.querySelector('#aviso')
+	aviso.addEventListener('click', () => {
+		modal.classList.remove('top-full')
+		modal.classList.add('top-0')
+		modal.classList.remove('animate-slide-down')
+		modal.classList.add('animate-slide-up')
+		// modal.classList.add('pointer-events-none')
+		// modal.classList.remove('bg-opacity-100')
+		// modal.classList.add('animate-slide-up')
+	})
+	boton.addEventListener('click', () => {
+		modal.classList.remove('top-0')
+		modal.classList.add('top-full')
+		modal.classList.remove('animate-slide-up')
+		modal.classList.add('animate-slide-down')
+	})
+</script>
+
+<style>
+	.animate-slide-up {
+		animation: slideUp 1s ease-in-out;
+	}
+
+	@keyframes slideUp {
+		0% {
+			transform: translateY(100%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+	}
+	.animate-slide-down {
+		animation: slideDown 1s ease-in-out;
+	}
+
+	@keyframes slideDown {
+		0% {
+			transform: translateY(-100%);
+		}
+		100% {
+			transform: translateY(0%);
+		}
+	}
+</style>

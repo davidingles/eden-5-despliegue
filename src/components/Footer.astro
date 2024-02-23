@@ -1,0 +1,62 @@
+---
+import BtnParpados from '@/components/botones/BtnParpados.astro'
+import Modal from './Modal.astro'
+---
+
+<div>
+	<Modal />
+</div>
+<div class='foot flex flex-col md:flex-row gap-4 md:gap-40 p-4'>
+	<div class=''>
+		<div
+			class='text-slate-400 w-full h-full flex flex-col justify-center items-start ml-20'
+		>
+			<p class='mb-4'>
+				Auxiliar Manipulodora del Cartón<br />Calle Los Mateos, 1<br />C.P:
+				30564 Lorquí (Murcia)<br />T. 968 693 575<br />Fax: 968 693 244<br
+				/>Email: administracion@laauxiliar.es
+			</p>
+
+			<div class='flex gap-4'>
+				<a
+					href='https:facebook.com'
+					target='_blank'
+					><img
+						class='w-8'
+						src='/assets/redes/facebook-01.svg'
+						alt='logo del facebook'
+					/></a
+				>
+				<a
+					href='https:youtube.com'
+					target='_blank'
+					><img
+						class='w-12'
+						src='/assets/redes/youtube-01.svg'
+						alt='logo del facebook'
+					/></a
+				>
+			</div>
+		</div>
+	</div>
+
+	<div class='flex flex-col flex-nowrap'>
+		<BtnParpados />
+	</div>
+
+	<style>
+		.foot {
+			scrollbar-width: thin;
+		}
+		/* :global(.light) .foot {
+			background-color: #909090;
+			color: #202020;
+		} */
+		/* :global(.light) .direccion {
+			color: #202020;
+		} */
+		.objetivo {
+			target: _blank;
+		}
+	</style>
+</div>

@@ -1,51 +1,231 @@
 ---
+import AsideMenu from '@/components/AsideMenu.astro'
+import FooterMenu from '@/components/FooterMenu.astro'
+import Footer from '@/components/Footer.astro'
+import HeaderMenu from '@/components/HeaderMenu.astro'
+import NavbarMovil from '@/components/NavbarMovil.astro'
 interface Props {
-	title: string;
+	title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
-<!doctype html>
-<html lang="en">
+<html lang='es'>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset='UTF-8' />
+		<meta
+			name='description'
+			content='Astro description'
+		/>
+		<meta
+			name='viewport'
+			content='width=device-width'
+		/>
+		<link
+			rel='icon'
+			type='image/svg+xml'
+			href='/svg/favicon.auxiliar.svg'
+		/>
+		<meta
+			name='generator'
+			content={Astro.generator}
+		/>
 		<title>{title}</title>
 	</head>
-	<body>
-		<slot />
+	<body class='body'>
+		<!--  -->
+		<!--  -->
+		<!-- //!!!: ASIDE ================================= -->
+		<div class='asideMenu p-2 [grid-area:aside] flex flex-col'>
+			<AsideMenu />
+		</div>
+		<div class='navbar__movil [grid-area:aside] z-50'>
+			<NavbarMovil />
+		</div>
+
+		<!-- //!!!: ASIDE ================================= -->
+		<!--  -->
+		<!--  -->
+		<!-- //!!!:BODY ================================= -->
+		<div class='mainMenu [grid-area:main] overflow-y-auto'>
+			<!-- //?: header=================================== -->
+			<div class=''>
+				<HeaderMenu />
+			</div>
+			<!-- //?: header=================================== -->
+			<div class='vid p-2 m-2'>
+				<slot />
+			</div>
+		</div>
+		<!-- //!!!:BODY ================================= -->
+		<!--  -->
+		<!--  -->
+		<!-- //!!!: FOOTER ================================= -->
+		<div class='[grid-area:footer] bg-slate-800'>
+			<FooterMenu />
+		</div>
+		<div class='[grid-area:aviso] bg-black flex flex-col'>
+			<Footer />
+		</div>
+		<!-- //!!!: FOOTER ================================= -->
+		<!--  -->
+		<!--  -->
 	</body>
+
+	<style is:global>
+		:root {
+			--accent: 136, 58, 234;
+			--auxi1: rgb(222, 171, 18);
+			--auxi2: rgb(0, 128, 72);
+			--degraUno: linear-gradient(
+				45deg,
+				rgb(222, 171, 18, 0.2),
+				rgb(22, 24, 24),
+				rgb(0, 128, 72, 0.1)
+			);
+			--degraDos: linear-gradient(
+				45deg,
+				rgb(222, 171, 18, 0.1),
+				rgb(255, 255, 255),
+				rgb(222, 171, 18, 0.1)
+			);
+		}
+		html {
+			font-family: 'CircularStd', system-ui, sans-serif;
+			background-color: #222;
+			color: white;
+			background-size: 224px;
+			scroll-behavior: smooth;
+			scrollbar-color: var(--auxi1) black;
+			scrollbar-width: thin;
+		}
+		::selection {
+			background-color: var(--auxi1);
+			color: white;
+		}
+		body {
+			display: grid;
+			grid-template-areas:
+				'aside main main'
+				'footer footer footer'
+				'aviso aviso aviso';
+			grid-template-columns: 225px 1fr;
+			grid-template-rows: 1fr auto;
+		}
+
+		@media screen and (max-width: 768px) {
+			body {
+				grid-template-areas:
+					'aside'
+					'main'
+					'footer'
+					'aviso';
+				grid-template-columns: 1fr;
+				grid-template-rows: 222px 1fr auto auto;
+			}
+			.asideMenu {
+				display: none;
+			}
+			.mainMenu {
+				translate: 0 -9rem;
+				height: 100%;
+			}
+		}
+		@media screen and (min-width: 769px) {
+			.navbar__movil {
+				display: none;
+				position: relative;
+				z-index: 99;
+			}
+		}
+
+		.light .body {
+			background-color: white;
+			color: rgb(55, 55, 55);
+		}
+		.asideMenu {
+			height: calc(100vh - 104px);
+			background-color: #222;
+		}
+		.light .asideMenu {
+			background-color: #f0f0f0;
+		}
+		.mainMenu {
+			height: calc(100vh - 104px);
+			background-color: #333;
+			scrollbar-width: thin;
+		}
+		.light .mainMenu {
+			background-color: rgb(245 245 245);
+		}
+
+		.bordeRojo {
+			border: 1px solid rgb(255, 0, 0);
+		}
+		.bordeVerde {
+			border: 1px solid rgb(0, 255, 0);
+		}
+		.tipografia1 {
+			font-family: 'ErasITC', 'CircularStd', system-ui, sans-serif;
+		}
+		.tipografía2 {
+			font-family: 'CircularStd', system-ui, sans-serif;
+		}
+		.colorUno {
+			color: var(--auxi1);
+		}
+		.colorDos {
+			color: var(--auxi2);
+		}
+
+		@font-face {
+			font-family: 'ErasITC';
+			src: url('/fonts/ITC Eras Demi.ttf'); /* format('ttf'); */
+			/* font-style: normal;
+				font-display: swap; */
+		}
+		@font-face {
+			font-family: 'CircularStd';
+			src: url('/fonts/CircularStd-Medium.woff2') format('woff2');
+			font-weight: 500;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'CircularStd';
+			src: url('/fonts/CircularStd-Book.woff2') format('woff2');
+			font-weight: 400;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'CircularStd';
+			src: url('/fonts/CircularStd-Light.woff2') format('woff2');
+			font-weight: 300;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'CircularStd';
+			src: url('/fonts/CircularStd-Bold.woff2') format('woff2');
+			font-weight: 700;
+			font-style: normal;
+			font-display: swap;
+		}
+
+		@font-face {
+			font-family: 'CircularStd';
+			src: url('/fonts/CircularStd-Black.woff2') format('woff2');
+			font-weight: 900;
+			font-style: normal;
+			font-display: swap;
+		}
+		.vid {
+			height: calc(100vh - 222px);
+		}
+	</style>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

@@ -1,0 +1,19 @@
+---
+interface VideoProps {
+	id: string
+	autoplay: boolean
+	src: string
+}
+const { id, autoplay, src } = Astro.props
+---
+
+<video
+	id={id}
+	class='object-cover rounded-lg shadow-lg w-full h-full'
+	autoplay={autoplay}
+	loop
+	muted
+	playsinline
+>
+	<source src={src} />
+</video>
