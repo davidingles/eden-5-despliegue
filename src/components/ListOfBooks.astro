@@ -20,7 +20,7 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 	})
 </script>
 
-<div class='mt-10 mb-2 flex flex-col md:flex-row'>
+<div id="home" class='mt-10 mb-2 flex flex-col md:flex-row'>
 	<a
 		class='opts p-4'
 		href='#estuches'
@@ -40,10 +40,13 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 		<BtnEstrellasExpositores />
 	</a>
 </div>
-<div>Estuches</div>
+<div id="estuches" class="arrow">Estuches</div>
+<a href="#home" class="subir">
+	<img class="flecha" src="./svg/flechaSube.svg" alt="flecha" />
+</a>
+<div class="linea-blanca"></div>
 <div
-	id='estuches'
-	class='grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto mt-2'
+	class='seccion grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto'
 >
 	{
 		books
@@ -63,10 +66,14 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 	}
 </div>
 
-<div>Cajas</div>
+<div id='cajas'class="arrow">Cajas</div>
+<a href="#home" class="subir">
+	<img class="flecha" src="./svg/flechaSube.svg" alt="flecha" />
+</a>
+<div class="linea-blanca"></div>
+
 <div
-	id='cajas'
-	class='grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto mt-24'
+	class='seccion grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto'
 >
 	{
 		books
@@ -86,10 +93,14 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 	}
 </div>
 
-<div>Expositores</div>
+<div id="expositores" class="arrow">Expositores</div>
+<a href="#home" class="subir">
+	<img class="flecha" src="./svg/flechaSube.svg" alt="flecha" />
+</a>
+<div class="linea-blanca"></div>
+
 <div
-	id='expositores'
-	class='grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto mt-24 mb-12'
+	class='seccion grid sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center m-auto'
 >
 	{
 		books
@@ -109,6 +120,33 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 	}
 </div>
 <style>
+	.flecha{
+		display: inline;
+		width: 22px;
+		height: 22px;
+		margin-left: 1rem;
+	}
+	.flecha:hover{
+		transition: .3s;
+		scale: 1.2;
+		translate: 0 -3px;
+	}
+	.arrow{
+		display: inline;
+		margin-left: 2rem;
+		padding: 1rem;
+	}
+	.seccion{
+		margin-bottom: 1rem;
+	}
+	.subir{
+		display: inline;
+	}
+		.linea-blanca {
+		border-top: 1px solid white;
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
 	.card {
 		width: auto;
 		height: auto;
@@ -125,19 +163,7 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 			-3px -3px 5px #000;
 	}
 
-	/* :global(.light) .card {
-		box-shadow:
-			8px 8px 15px #bebebe,
-			-8px -8px 15px #ffffff;
-	}
-	:global(.light) .card:hover {
-		transition: all 0.3s ease-in-out;
-		transform: translateY(-5px);
-		filter: brightness(1.05);
-		box-shadow:
-			3px 3px 5px #9d9d9d,
-			-3px -3px 5px #ffffff;
-	} */
+
 
 	.opts {
 		color: white;
@@ -146,12 +172,5 @@ import BtnEstrellasCajas from '../components/botones/BtnEstrellasCajas.astro'
 	.opts:hover {
 		text-decoration: underline;
 	}
-	/* :global(.light) .opts {
-		color: #555;
-	}
-	:global(.light) .opts:hover {
-		color: #000;
-		font-weight: bold;
-		text-decoration: underline;
-	} */
+
 </style>
