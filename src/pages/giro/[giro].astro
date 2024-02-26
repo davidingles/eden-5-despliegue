@@ -3,6 +3,9 @@ import { books } from '../../data/books.js'
 import { fade } from 'astro:transitions'
 import LayoutCatalogo from '../../layouts/LayoutCatalogo.astro'
 import BtnEstrellas from '../../components/botones/BtnEstrellas.astro'
+import BtnEstrellasGirar from '@/components/botones/BtnEstrellasGirar.astro'
+import BtnEstrellasVideo from '@/components/botones/BtnEstrellasVideo.astro'
+import BtnEstrellasCatalogo from '@/components/botones/BtnEstrellasCatalogo.astro'
 
 const { giro } = Astro.params
 console.log(giro)
@@ -23,14 +26,28 @@ export function getStaticPaths() {
 <LayoutCatalogo title={bookData.id}>
 	<main class='flex flex-col w-full relative'>
 		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
-			<nav class='flex'>
+			<nav class='dos-botones'>
 				<a
 					id='
 						anchor'
 					href='/catalogo'
 				>
-					<BtnEstrellas />
+					<BtnEstrellasCatalogo />
 				</a>
+				<a
+				id='
+				anchor'
+				href={`/animacion/${bookData.id}`}
+			>
+				<BtnEstrellasGirar />
+			</a>
+			<a
+			id='
+			anchor'
+			href={`/${bookData.id}`}
+		>
+			<BtnEstrellasVideo />
+		</a>
 				<div class='px-4'>
 					<p>{bookData.opinion}</p>
 					<p>{bookData.title}</p>
@@ -70,7 +87,11 @@ export function getStaticPaths() {
 <style>
 	.dos-botones{
 		display: flex;
-		flex-direction: column;
-		gap: 3rem;
+		gap: 1rem;
+	}
+	@media screen and (max-width: 748px) {
+		.dos-botones{
+			flex-direction: column;
+		}
 	}
 </style>

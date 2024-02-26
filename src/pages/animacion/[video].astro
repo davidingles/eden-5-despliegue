@@ -4,6 +4,8 @@ import { books } from '../../data/books.js'
 import BtnEstrellas from '../../components/botones/BtnEstrellas.astro'
 import { fade } from 'astro:transitions'
 import BtnEstrellasCatalogo from '../../components/botones/BtnEstrellasCatalogo.astro'
+import BtnEstrellasVideo from '../../components/botones/BtnEstrellasVideo.astro'
+import BtnEstrellasImagen from '../../components/botones/BtnEstrellasImagen.astro'
 
 
 const { video } = Astro.params
@@ -27,19 +29,26 @@ export function getStaticPaths() {
 		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
 			<nav class='dos-botones'>
 				<a
-					id='
-					anchor'
-					href={`/${bookData.id}`}
-				>
-					<BtnEstrellas />
-				</a>
-				<a
 				id='
 				anchor'
 				href='/catalogo'
 			>
 				<BtnEstrellasCatalogo />
 			</a>
+				<a
+					id='
+					anchor'
+					href={`../giro/${bookData.id}`}
+				>
+					<BtnEstrellasImagen />
+				</a>
+			<a
+			id='
+			anchor'
+			href={`/${bookData.id}`}
+		>
+			<BtnEstrellasVideo />
+		</a>
 				<div class='px-4'>
 					<p>{bookData.opinion}</p>
 					<span>{bookData.title}</span>
