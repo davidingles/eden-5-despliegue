@@ -2,6 +2,7 @@
 import { books } from '../data/books.js'
 import LayoutCatalogo from '../layouts/LayoutCatalogo.astro'
 import BtnEstrellas from '../components/botones/BtnEstrellas.astro'
+import BtnEstrellasCatalogo from '../components/botones/BtnEstrellasCatalogo.astro'
 import ReactThreeModel3D from '../components/ReactThreeModel3D.jsx'
 import { fade } from 'astro:transitions'
 
@@ -24,13 +25,20 @@ export function getStaticPaths() {
 <LayoutCatalogo title={bookData.id}>
 	<main class='flex flex-col w-full relative'>
 		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
-			<nav class='flex'>
+			<nav class='dos-botones '>
 				<a
 					id='
 					anchor'
 					href={`giro/${bookData.id}`}
 				>
 					<BtnEstrellas />
+				</a>
+				<a
+					id='
+					anchor'
+					href='/catalogo'
+				>
+					<BtnEstrellasCatalogo />
 				</a>
 				<div class='px-4'>
 					<p>{bookData.opinion}</p>
@@ -70,3 +78,15 @@ export function getStaticPaths() {
 		</div>
 	</main>
 </LayoutCatalogo>
+
+<style>
+	.dos-botones{
+		display: flex;
+		gap: 1rem;
+	}
+	@media screen and (max-width: 748px) {
+		.dos-botones{
+			flex-direction: column;
+		}
+	}
+</style>

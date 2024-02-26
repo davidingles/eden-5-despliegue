@@ -3,6 +3,8 @@ import LayoutCatalogo from '../../layouts/LayoutCatalogo.astro'
 import { books } from '../../data/books.js'
 import BtnEstrellas from '../../components/botones/BtnEstrellas.astro'
 import { fade } from 'astro:transitions'
+import BtnEstrellasCatalogo from '../../components/botones/BtnEstrellasCatalogo.astro'
+
 
 const { video } = Astro.params
 console.log({ video })
@@ -23,7 +25,7 @@ export function getStaticPaths() {
 <LayoutCatalogo title={bookData.three}>
 	<main class='w-full h-screen relative justify-center items-center'>
 		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
-			<nav class='flex'>
+			<nav class='dos-botones'>
 				<a
 					id='
 					anchor'
@@ -31,6 +33,13 @@ export function getStaticPaths() {
 				>
 					<BtnEstrellas />
 				</a>
+				<a
+				id='
+				anchor'
+				href='/catalogo'
+			>
+				<BtnEstrellasCatalogo />
+			</a>
 				<div class='px-4'>
 					<p>{bookData.opinion}</p>
 					<span>{bookData.title}</span>
@@ -62,3 +71,15 @@ export function getStaticPaths() {
 		</div>
 	</main>
 </LayoutCatalogo>
+
+<style>
+	.dos-botones{
+		display: flex;
+		gap: 1rem;
+	}
+	@media screen and (max-width: 748px) {
+		.dos-botones{
+			flex-direction: column;
+		}
+	}
+</style>
