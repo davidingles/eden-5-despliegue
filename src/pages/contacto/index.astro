@@ -4,22 +4,16 @@ import { ServiciosCarruselReact2 } from '@/components/ServiciosCarruselReact2.js
 import TextoAnimadoTelefono from '@/components/botones/TextoAnimadoTelefono.astro'
 import Logo from '@/components/icons/LogoMaps.astro'
 
-const cielo2 = '/videos/diseñando.mp4'
-const nave = '/videos/admi.mp4'
+const cielo2 = '/videos/cajas-en-movimiento.mp4'
+const nave = '/videos/diseñando.mp4'
 const lunes = '/videos/camion.mp4'
-const nav = '/videos/cajas-en-movimiento.mp4'
+const nav = '/videos/admi.mp4'
 
-const naveThumb = '/thumbnails_videos/diseño.png'
-const naveThumb1 = '/thumbnails_videos/administracion.png'
+const naveThumb = '/thumbnails_videos/ventas.png'
+const naveThumb1 = '/thumbnails_videos/diseño.png'
 const naveThumb2 = '/thumbnails_videos/logistica.png'
-const naveThumb3 = '/thumbnails_videos/ventas.png'
+const naveThumb3 = '/thumbnails_videos/administracion.png'
 
-// const textos = [
-// 	'Empresa fundada en 1995, avalada con una gran experiencia en el sector del cartón.',
-// 	'Auxiliar Manipuladora del Cartón va evolucionando para cubrir las necesidades de sus clientes',
-// 	'Todas las personas que trabajan directa o indirectamente tienen el espíritu de aceptar los retos para adaptarse aun mercado más competitivo y exigente.',
-// 	'Tras la incorporación de nuevas generaciones seguiremos avanzando juntos.',
-// ]
 const textos2 = {
 	ventas: {
 		dep: 'Ventas',
@@ -84,10 +78,10 @@ const claves = ['ventas', 'diseño', 'logistica', 'admin']
 				lunes={lunes}
 				nav={nav}
 				video={true}
-				naveThumb={naveThumb}
 				naveThumb1={naveThumb1}
-				naveThumb2={naveThumb2}
+				naveThumb={naveThumb}
 				naveThumb3={naveThumb3}
+				naveThumb2={naveThumb2}
 				claves={claves}
 				textos2={textos2}
 			/>
@@ -107,8 +101,5 @@ const claves = ['ventas', 'diseño', 'logistica', 'admin']
 
 	.spin {
 		animation: spin 6s linear infinite;
-	}
-	:global(.light) .bodyIndex {
-		color: #333;
 	}
 </style>
