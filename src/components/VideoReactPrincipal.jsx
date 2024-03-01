@@ -6,7 +6,6 @@ import estilos from './VideoReactPrincipal.module.css'
 const libro = {
   "v__1g0011": "Estuche apilable y automontable para usar en expositores unidos",
   "caja": "Caja típica / modelo básico conocido como 'B1'",
-  "v_1L0024": "aiii",
   "v_1L0024": "Bandeja automontable básica",
   "v1P0221": "Estuche automontable",
   "video4e0066": "Estuche 3 botellas con agarrador incluído en el diseño",
