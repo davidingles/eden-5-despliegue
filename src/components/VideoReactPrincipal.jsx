@@ -7,14 +7,14 @@ const libro = {
   "v__1g0011": "Estuche apilable y automontable para usar en expositores unidos",
   "caja": "Caja típica / modelo básico conocido como 'B1'",
   "v_1L0024": "aiii",
-  "v_1L0024": "PAULA",
-  "v1P0221": "lopez",
-  "video4e0066": "cajas",
-  "videoJamonero": "jamonero",
-  "videoEstuche1botella": "estuche de una botella",
-  "videoCajaConBotes": "caja b1 con separador para botes",
+  "v_1L0024": "Bandeja automontable básica",
+  "v1P0221": "Estuche automontable",
+  "video4e0066": "Estuche 3 botellas con agarrador incluído en el diseño",
+  "videoJamonero": "Estuche Jamonero con asa de plástico",
+  "videoEstuche1botella": "Estuche para una botella con fijador en la tapa",
+  "videoCajaConBotes": "Caja con separador incluído. Para tarros, lastas, botes...",
   "videoCaballete": "Caballete para expositores",
-  "videoCazoletas":"cazoletas tengo que hacer de nuevo el video"
+  "videoCazoletas":"Dispensador"
 }
 
 const videosPrincipales = Object.keys(libro);
@@ -42,7 +42,7 @@ function VideoPlayer() {
   }
 
   return (
-    <div>
+    <div className={estilos.video}>
       <section>
         {videosPrincipales.map((video, index) => {
           if (currentVideo === index) {
