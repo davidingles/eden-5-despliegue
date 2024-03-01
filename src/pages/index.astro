@@ -1,14 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Video from '@/components/Video.astro'
+// import Video from '@/components/Video.astro'
+import VideoReactPrincipal from '@/components/VideoReactPrincipal.jsx'
+// const videosPrincipales = ["videoCaballete", "video1G0011", "v1P0221", "videoCazoletas"]
 ---
 
-<Layout title='Auxiliar Manipuladora del Cartón relative'>
-	<div class='colorDos rounded-lg bg-zinc-900 h-full'>
+<!-- <Layout title='Auxiliar Manipuladora del Cartón relative'>
+	{}
+	<div class='h-full w-2/3 m-auto  max-h-full'>
 		<Video
 			autoplay={true}
 			id='cajas'
-			src='/videos/cajas-en-movimiento.mp4'
+			src='/videos/montajes/v__1g0011.webm'
 		/>
+	</div>
+</Layout> -->
+
+
+<!-- <Layout title='Auxiliar Manipuladora del Cartón relative'>
+	<div class='h-full w-2/3 m-auto  max-h-full'>
+		{videosPrincipales.map( v => (
+			<Video
+			autoplay={true}
+			id={v}
+			src={`/videos/montajes/${v}.webm`}
+			/>
+		))}
+	</div>
+</Layout> -->
+
+
+<Layout title='Auxiliar Manipuladora del Cartón relative'>
+	<div class='h-full w-2/3 m-auto  max-h-full'>
+		<VideoReactPrincipal client:load />
 	</div>
 </Layout>
