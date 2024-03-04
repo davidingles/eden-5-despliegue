@@ -7,7 +7,6 @@ import BtnEstrellasCatalogo from '../../components/botones/BtnEstrellasCatalogo.
 import BtnEstrellasVideo from '../../components/botones/BtnEstrellasVideo.astro'
 import BtnEstrellasImagen from '../../components/botones/BtnEstrellasImagen.astro'
 
-
 const { video } = Astro.params
 console.log({ video })
 const bookData = books.find((b) => b.id === video)
@@ -29,12 +28,12 @@ export function getStaticPaths() {
 		<div class='absolute top-4 lef-4 z-20 flex flex-col'>
 			<nav class='dos-botones'>
 				<a
-				id='
+					id='
 				anchor'
-				href='/catalogo'
-			>
-				<BtnEstrellasCatalogo />
-			</a>
+					href='/catalogo'
+				>
+					<BtnEstrellasCatalogo />
+				</a>
 				<a
 					id='
 					anchor'
@@ -42,13 +41,13 @@ export function getStaticPaths() {
 				>
 					<BtnEstrellasImagen />
 				</a>
-			<a
-			id='
+				<a
+					id='
 			anchor'
-			href={`/${bookData.id}`}
-		>
-			<BtnEstrellasVideo />
-		</a>
+					href={`/${bookData.id}`}
+				>
+					<BtnEstrellasVideo />
+				</a>
 				<div class='px-4'>
 					<p>{bookData.opinion}</p>
 					<span>{bookData.title}</span>
@@ -64,6 +63,7 @@ export function getStaticPaths() {
 			{
 				bookData.video && (
 					<video
+						id='myVideo'
 						class={`object-scale-down h-[800px] w-full`}
 						src={bookData.video}
 						autoplay
@@ -81,13 +81,24 @@ export function getStaticPaths() {
 	</main>
 </LayoutCatalogo>
 
+<script>
+	document.getElementById('myVideo').addEventListener('click', function (e) {
+		const video = e.target as HTMLVideoElement;
+		if (video.paused) {
+			video.play()
+		} else {
+			video.pause()
+		}
+	})
+</script>
+
 <style>
-	.dos-botones{
+	.dos-botones {
 		display: flex;
 		gap: 1rem;
 	}
 	@media screen and (max-width: 748px) {
-		.dos-botones{
+		.dos-botones {
 			flex-direction: column;
 		}
 	}

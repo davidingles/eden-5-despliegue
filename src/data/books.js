@@ -17,6 +17,22 @@ export const books = [
 
 	},
 	{
+		id: 'v4G02870001_cazoletas',
+		title: 'Bandeja con Cotas',
+		img: '/catalogo/RenderEstucheCazoletas.png',
+		opinion: 'Bandeja automontable acotada.',
+		author: 'David Inglés',
+		categoria: 'Bandejas',
+		tamaño: 3,
+		escala: 1,
+		posicion: .3,
+		glbSource: '/gltf/4G0288_cazoletas.glb',
+		three: '1P0221',
+		video: '/videos/montajes/v4G02870001_cazoletas.webm',
+		scaleVideo: 1.5
+
+	},
+	{
 		id: 'cajaB1',
 		title: 'cajaB1',
 		img: '/catalogo/cajaB1.png',

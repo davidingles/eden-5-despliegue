@@ -13,7 +13,7 @@ const libro = {
   "videoEstuche1botella": "Estuche para una botella con fijador en la tapa",
   "videoCajaConBotes": "Caja con separador incluído. Para tarros, lastas, botes...",
   "videoCaballete": "Caballete para expositores",
-  "videoCazoletas":"Dispensador"
+  "v4G02870001_cazoletas": "Dispensador de cazoletas",
 }
 
 const videosPrincipales = Object.keys(libro);
