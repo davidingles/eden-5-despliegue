@@ -14,10 +14,38 @@
     top: 5%;
   }
 }
+@keyframes fadeIn2 {
+
+  0% {
+    opacity: 0;
+    top: 0%;
+    left: 0px;
+  }
+  100% {
+    opacity: 1;
+    top: 10%;
+  }
+}
+@keyframes fadeInVideo {
+
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;}
+}
 
 .david {
   position: absolute;
-  animation: fadeIn 2s;
+  animation: fadeIn 4s;
   top: 5%;
 }
+.david2{
+  position: absolute;
+  animation: fadeIn2 4s;
+  top: 10%;
+}
 
+.video2{
+  animation: fadeInVideo 2s;
+}
