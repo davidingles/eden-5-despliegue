@@ -1,19 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import estilos from './VideoReactPrincipal.module.css'
+import { libreto } from '../data/libreto'
 
-const libreto = {
-  "vCAJA_FLEXO": {
-    "DESCRIPCION": "Caja típica / modelo básico conocido como B1",
-    "DESCRIPCION2": "Impresión Flexográfica",
-    "IMPRESION": 10
-    ,
-  },
-  "v_1L0024": {
-    "DESCRIPCION": "Bandeja automontable básica",
-    // "DESCRIPCION2":"Impresión Flexográfica",
-    "IMPRESION": 2,
-  },
-}
 
 const videosPrincipales = Object.keys(libreto);
 
