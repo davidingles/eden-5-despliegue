@@ -64,7 +64,7 @@ export default function EstucheConAsas({ url, escala, posicion }) {
 					<Model url={url} miEscala={escala} miPosicion={posicion} className={estilos.model}  />
 				</Suspense>
 				<OrbitControls autoRotate autoRotateSpeed={.6} />
-				<ContactShadows resolution={512} scale={30} position={[0, -0.5, 0.0]} blur={.1} opacity={.5} far={10} color='#8a6246' />
+				{/* <ContactShadows resolution={512} scale={30} position={[0, -0.5, 0.0]} blur={.1} opacity={.5} far={10} color='#8a6246' /> */}
 			</Canvas>
 		</>
 	)
