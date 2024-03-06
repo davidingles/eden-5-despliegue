@@ -1,23 +1,38 @@
 import { useState, useEffect } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import ReactThreeModel3D from './ReactThreeModel3D.jsx'
 import estilos from './ModelRotator.module.css'
 
 export default function ModelRotator({ libreto }) {
   const [currentLibreto, setCurrentLibreto] = useState(libreto[0]);
   const [nextLibreto, setNextLibreto] = useState(libreto[1]);
+  const [thirdLibreto, setThirdLibreto] = useState(libreto[2]);
   const [index, setIndex] = useState(0);
 
+  const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
+  const isLargeScreen = useMediaQuery({ query: '(min-width: 1500px)' });
+
   const handleOnClick = () => {
-    setIndex((prevIndex) => (prevIndex + 2) % libreto.length);
+    setIndex((prevIndex) => (prevIndex + 1) % libreto.length);
   };
   const handleOnClickReverse = () => {
-    setIndex((prevIndex) => ((prevIndex - 2 + libreto.length) % libreto.length));
+    setIndex((prevIndex) => ((prevIndex - 1 + libreto.length) % libreto.length));
   };
 
   useEffect(() => {
     setCurrentLibreto(libreto[index]);
     setNextLibreto(libreto[(index + 1) % libreto.length]);
-  }, [index, libreto]);
+    if (isLargeScreen) {
+      setThirdLibreto(libreto[(index + 2) % libreto.length]);
+    }
+  }, [index, libreto, isLargeScreen]);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % libreto.length);
+    }, 8000);
+    return () => clearInterval(interval);
+  }, [libreto, isMobile, isLargeScreen]);
 
   return (
     <div className={estilos.model}>
@@ -33,21 +48,30 @@ export default function ModelRotator({ libreto }) {
         escala={currentLibreto.escala}
         posicion={currentLibreto.posicion}
         three={currentLibreto.three}
-        video={currentLibreto.video}
-        scaleVideo={currentLibreto.scaleVideo}
         client:load
       />
-      <ReactThreeModel3D
-        url={nextLibreto.glbSource}
-        id={nextLibreto.id}
-        tamaño={nextLibreto.tamaño}
-        escala={nextLibreto.escala}
-        posicion={nextLibreto.posicion}
-        three={nextLibreto.three}
-        video={nextLibreto.video}
-        scaleVideo={nextLibreto.scaleVideo}
-        client:load
-      />
+      {!isMobile && (
+        <ReactThreeModel3D
+          url={nextLibreto.glbSource}
+          id={nextLibreto.id}
+          tamaño={nextLibreto.tamaño}
+          escala={nextLibreto.escala}
+          posicion={nextLibreto.posicion}
+          three={nextLibreto.three}
+          client:load
+        />
+      )}
+      {isLargeScreen && (
+        <ReactThreeModel3D
+          url={thirdLibreto.glbSource}
+          id={thirdLibreto.id}
+          tamaño={thirdLibreto.tamaño}
+          escala={thirdLibreto.escala}
+          posicion={thirdLibreto.posicion}
+          three={thirdLibreto.three}
+          client:load
+        />
+      )}
       <button
         className={estilos.btn}
         onClick={handleOnClick}>

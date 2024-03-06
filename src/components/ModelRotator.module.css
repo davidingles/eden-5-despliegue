@@ -18,8 +18,17 @@
 }
 
 .btn{
-  width: 33px;
-  height: 33px;
+  width: 111px;
+  height: 111px;
   margin: 22px;
   align-items: center;
+}
+
+@media screen and (max-width: 700px) {
+  .btn{
+    width: 55px;
+    height: 55px;
+    margin: 11px;
+    align-items: center;
+  }
 }
