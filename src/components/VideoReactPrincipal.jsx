@@ -12,7 +12,7 @@ function VideoPlayer() {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.src = `/videos/montajes/${videosPrincipales[currentVideo]}.webm`;
+      videoRef.current.src = `/videos/videos_inicio/${videosPrincipales[currentVideo]}.webm`;
     }
   }, [currentVideo]);
 

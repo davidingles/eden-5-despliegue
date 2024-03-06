@@ -2,6 +2,7 @@ import * as THREE from 'three'
 import { Suspense, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF, Clone, Html, ContactShadows } from '@react-three/drei'
+import estilos from './ReactThreeModel3D.module.css'
 
 function Model({ url, miEscala, miPosicion }) {
 	const { scene } = useGLTF(url)
@@ -33,7 +34,7 @@ function Fallback() {
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center',
-				height: '100vh'
+				height: '100%'
 			}}>
 				<div style={{
 					border: '16px solid #f3f3f3',
@@ -60,7 +61,7 @@ export default function EstucheConAsas({ url, escala, posicion }) {
 			<Canvas camera={{ position: [0, .4, -0.6], near: .01, fov: 50 }}>
 				<ambientLight intensity={4} />
 				<Suspense fallback={<Fallback />}>
-					<Model url={url} miEscala={escala} miPosicion={posicion} />
+					<Model url={url} miEscala={escala} miPosicion={posicion} className={estilos.model}  />
 				</Suspense>
 				<OrbitControls autoRotate autoRotateSpeed={.6} />
 				<ContactShadows resolution={512} scale={30} position={[0, -0.5, 0.0]} blur={.1} opacity={.5} far={10} color='#8a6246' />

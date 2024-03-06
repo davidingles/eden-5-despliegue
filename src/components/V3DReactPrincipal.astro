@@ -1,0 +1,53 @@
+---
+import ModelRotator from './ModelRotator.jsx';
+
+const libreto = [
+	{
+		id: '1P0221',
+		tamaño: 3,
+		escala: .6,
+		posicion: .3,
+		glbSource: '/gltf/1P0221.glb',
+		three: '1P0221',
+		video: '/videos/montajes/v1P0221.webm',
+		scaleVideo: 1.5
+
+	},
+	{
+		id: 'v4G02870001_cazoletas',
+		tamaño: 3,
+		escala: 1,
+		posicion: .3,
+		glbSource: '/gltf/4G0288_cazoletas.glb',
+		three: '1P0221',
+		scaleVideo: 1.5
+
+	},
+	{
+		id: 'cajaB1',
+		tamaño: 3,
+		escala: .6,
+		posicion: .3,
+		glbSource: '/gltf/cajaB1.glb',
+		three: '1P0221',
+		scaleVideo: 1.5
+	},
+]
+
+---
+
+<div class="div-Model">
+  <ModelRotator libreto={libreto} client:load />
+</div>
+
+<style>
+	.div-Model {
+		display: flex;
+		margin: 111px auto;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		border: 1px solid #000;
+	}
+</style>
