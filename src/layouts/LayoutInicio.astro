@@ -92,16 +92,23 @@ const { title } = Astro.props
 		}
 		.franja-3D{
 			width: 100%;
-			height: 288px;
+			height: 111px;
 			position: absolute;
 			z-index: 1;
 		}
+		.franja-3D:hover{
+			transition: all 1s ease;
+			height: 288px;
+		}
 		@media screen and (min-width: 1500px) {
 			.franja-3D{
-				height: 444px;
+				height: 222px;
 			}
-
-			}
+			.franja-3D:hover{
+				transition: all 1s ease;
+				height: 555px;
+			}	
+		}
 		html {
 			font-family: 'CircularStd', system-ui, sans-serif;
 			background-color: #222;
