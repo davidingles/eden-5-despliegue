@@ -22,30 +22,47 @@ const libreto = [
 	// 	glbSource: '/gltf/cajaB1.glb',
 	// 	scaleVideo: 1.5
 	// },
-	{
-		glbSource: '/gltf/troquel1g0011.glb',
-		video: '/videos/montajes/v__1g0011.webm',
-		tamaño: 1,
-		escala: .9,
-		posicion: .3
-	},
-	{
-		glbSource: '/gltf/Troquel1G0198.gltf',
-		tamaño: 1,
-		escala: .7,
-		posicion: -.3,
-	},
+	// {
+	// 	glbSource: '/gltf/troquel1g0011.glb',
+	// 	video: '/videos/montajes/v__1g0011.webm',
+	// 	tamaño: 1,
+	// 	escala: .9,
+	// 	posicion: .3
+	// },
+	// {
+	// 	glbSource: '/gltf/Troquel1G0198.gltf',
+	// 	tamaño: 1,
+	// 	escala: .7,
+	// 	posicion: -.3,
+	// },
 	{
 		tamaño: 1,
 		escala: .9,
 		posicion: .5,
-		glbSource: '/gltf/JAMONERO9.glb',
+		glbSource: '/glb/JAMONERO9.glb',
+		velocidadRotacion: 4,
+
+	},
+	{
+		tamaño: 1,
+		escala: 1.5,
+		posicion: .5,
+		glbSource: '/glb/ROANO.glb',
+		velocidadRotacion: 4,
+
+	},
+	{
+		tamaño: 1,
+		escala: .5,
+		posicion: .5,
+		glbSource: '/glb/CANARA.glb',
+		velocidadRotacion: 4,
 	}
 ]
 
 ---
 
-<div class="div-Model  bg-black bg-opacity-60">
+<div class="div-Model ">
   <ModelRotator libreto={libreto} client:load />
 </div>
 

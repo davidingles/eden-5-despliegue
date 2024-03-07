@@ -30,7 +30,7 @@ export default function ModelRotator({ libreto }) {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % libreto.length);
-    }, 8000);
+    }, 80000);
     return () => clearInterval(interval);
   }, [libreto, isMobile, isLargeScreen]);
 
@@ -48,30 +48,9 @@ export default function ModelRotator({ libreto }) {
         escala={currentLibreto.escala}
         posicion={currentLibreto.posicion}
         three={currentLibreto.three}
+        velocidadRotacion={currentLibreto.velocidadRotacion}
         client:load
       />
-      {!isMobile && (
-        <ReactThreeModel3D
-          url={nextLibreto.glbSource}
-          id={nextLibreto.id}
-          tamaño={nextLibreto.tamaño}
-          escala={nextLibreto.escala}
-          posicion={nextLibreto.posicion}
-          three={nextLibreto.three}
-          client:load
-        />
-      )}
-      {isLargeScreen && (
-        <ReactThreeModel3D
-          url={thirdLibreto.glbSource}
-          id={thirdLibreto.id}
-          tamaño={thirdLibreto.tamaño}
-          escala={thirdLibreto.escala}
-          posicion={thirdLibreto.posicion}
-          three={thirdLibreto.three}
-          client:load
-        />
-      )}
       <button
         className={estilos.btn}
         onClick={handleOnClick}>

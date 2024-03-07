@@ -55,7 +55,7 @@ function Fallback() {
 	)
 }
 
-export default function EstucheConAsas({ url, escala, posicion }) {
+export default function EstucheConAsas({ url, escala, posicion, velocidadRotacion = .6 }) {
 	return (
 		<>
 			<Canvas camera={{ position: [0, .4, -0.6], near: .01, fov: 50 }}>
@@ -63,7 +63,7 @@ export default function EstucheConAsas({ url, escala, posicion }) {
 				<Suspense fallback={<Fallback />}>
 					<Model url={url} miEscala={escala} miPosicion={posicion} className={estilos.model}  />
 				</Suspense>
-				<OrbitControls autoRotate autoRotateSpeed={.6} />
+				<OrbitControls autoRotate autoRotateSpeed={velocidadRotacion} />
 				{/* <ContactShadows resolution={512} scale={30} position={[0, -0.5, 0.0]} blur={.1} opacity={.5} far={10} color='#8a6246' /> */}
 			</Canvas>
 		</>
