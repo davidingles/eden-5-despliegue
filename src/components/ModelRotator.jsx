@@ -5,15 +5,18 @@ import estilos from './ModelRotator.module.css'
 
 export default function ModelRotator({ libreto2 }) {
   const [index, setIndex] = useState(0);
+  const [ultimoBoton, setUltimoBoton] = useState('derecha');
 
   const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
   const isLargeScreen = useMediaQuery({ query: '(min-width: 1500px)' });
 
   const handleOnClick = () => {
     setIndex((prevIndex) => (prevIndex + 1) % libreto2.length);
+    setUltimoBoton('derecha');
   };
   const handleOnClickReverse = () => {
     setIndex((prevIndex) => ((prevIndex - 1 + libreto2.length) % libreto2.length));
+    setUltimoBoton('izquierda');
   };
 
   useEffect(() => {
@@ -28,13 +31,14 @@ export default function ModelRotator({ libreto2 }) {
       <button
         className={estilos.btn}
         onClick={handleOnClickReverse}>
-        <img src="./svg/arrow.svg" alt="" style={{ rotate: '-180deg', width:'66px', height:'66px' }} />
+        <img src="./svg/arrow.svg" alt="" style={{ rotate: '-180deg', width: '66px', height: '66px' }} />
       </button>
       {libreto2.map((libretoItem, mapIndex) => (
         mapIndex === index && (
-          <div className={estilos.fade}>
+          <div
+            key={mapIndex}
+            className={ultimoBoton === 'derecha' ? estilos.fade : estilos.fade2}>
             <ReactThreeModel3DPrincipal
-              key={mapIndex}
               url={libretoItem.glbSource}
               tamaño={libretoItem.tamaño}
               escala={libretoItem.escala}
@@ -47,7 +51,7 @@ export default function ModelRotator({ libreto2 }) {
       <button
         className={estilos.btn}
         onClick={handleOnClick}>
-        <img src="./svg/arrow.svg" alt="" style={{ rotate: '0deg', width:'66px', height:'66px' }} />
+        <img src="./svg/arrow.svg" alt="" style={{ rotate: '0deg', width: '66px', height: '66px' }} />
       </button>
     </div>
   );

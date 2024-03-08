@@ -48,7 +48,6 @@ export function ServiciosCarruselReact2({ cielo2, nave, lunes, nav, video, naveT
             </div>
 
           </div>
-          {/* BOTONES ================================== */}
           <div className='flex flex-col justify-center'>
             <div className={`${estilos.thumbnailContainer} flex flex-row gap-4`}>
               {imagenes2.map((imagen, index) => (
@@ -64,8 +63,8 @@ export function ServiciosCarruselReact2({ cielo2, nave, lunes, nav, video, naveT
           </div>
         </div >
         {/* // TEXTOS =============================== */}
-        <div className={`${estilos.textazo}`}>
-              <p className={`${estilos.texto} text-lg text-balance overflow-y-auto px-4`}>{textos && textos[indiceSeleccionado]}{textos2 && textos2[claves[indiceSeleccionado]].dep}<br /><p className='whitespace-nowrap'>{textos2 && textos2[claves[indiceSeleccionado]].email}</p><p className='whitespace-nowrap'>{textos2 && textos2[claves[indiceSeleccionado]].nombre}</p><p className='whitespace-nowrap'>{textos2 && textos2[claves[indiceSeleccionado]].telefono}</p></p>
+        <div className={`${estilos.cajaTexto}`}>
+              <p className={`${estilos.texto}`}>{textos && textos[indiceSeleccionado]}{textos2 && textos2[claves[indiceSeleccionado]].dep}<br /><p className='whitespace-nowrap'>{textos2 && textos2[claves[indiceSeleccionado]].email}</p><p className='whitespace-nowrap'>{textos2 && textos2[claves[indiceSeleccionado]].nombre}</p><p className='whitespace-nowrap'>{textos2 && textos2[claves[indiceSeleccionado]].telefono}</p></p>
         </div>
       </main>
     </>

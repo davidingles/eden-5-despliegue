@@ -59,8 +59,20 @@
   display: flex;
 }
 
+.cajaTexto{
+  width: auto;
+ /* border: solid 3px black;  */
+}
 .texto {
   width: 266px;
+  color: var(--auxi1);
+  filter: brightness(1.2);
+  overflow-y: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-wrap: balance;
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
 .marco {

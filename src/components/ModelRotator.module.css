@@ -9,7 +9,15 @@
 
   @keyframes moveDown {
     0% {
-      transform: translateY(-111px);
+      transform: translateX(-222px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  @keyframes moveDown2 {
+    0% {
+      transform: translateX(222px);
     }
     100% {
       transform: translateY(0px);
@@ -33,6 +41,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow: hidden;
 }
 
 .btn{
@@ -53,6 +62,15 @@
 
 .fade {
   animation: moveDown 1s, fadeInOpacity 3s;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.fade2 {
+  animation: moveDown2 1s, fadeInOpacity 3s;
   width: 100%;
   height: 100%;
   position: relative;
