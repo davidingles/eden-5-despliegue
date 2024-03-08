@@ -1,12 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
-import ReactThreeModel3D from './ReactThreeModel3D.jsx'
+import ReactThreeModel3DPrincipal from './ReactThreeModel3DPrincipal.jsx'
 import estilos from './ModelRotator.module.css'
 
 export default function ModelRotator({ libreto }) {
-  const [currentLibreto, setCurrentLibreto] = useState(libreto[0]);
-  const [nextLibreto, setNextLibreto] = useState(libreto[1]);
-  const [thirdLibreto, setThirdLibreto] = useState(libreto[2]);
   const [index, setIndex] = useState(0);
 
   const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
@@ -20,41 +17,37 @@ export default function ModelRotator({ libreto }) {
   };
 
   useEffect(() => {
-    setCurrentLibreto(libreto[index]);
-    setNextLibreto(libreto[(index + 1) % libreto.length]);
-    if (isLargeScreen) {
-      setThirdLibreto(libreto[(index + 2) % libreto.length]);
-    }
-  }, [index, libreto, isLargeScreen]);
-
-  useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % libreto.length);
-    }, 80000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [libreto, isMobile, isLargeScreen]);
+  }, [libreto]);
 
   return (
     <div className={estilos.model}>
       <button
         className={estilos.btn}
         onClick={handleOnClickReverse}>
-        <img src="./svg/flechaSube.svg" alt="" style={{ rotate: '-90deg' }} />
+        <img src="./svg/arrow.svg" alt="" style={{ rotate: '-180deg', width:'66px', height:'66px' }} />
       </button>
-      <ReactThreeModel3D
-        url={currentLibreto.glbSource}
-        id={currentLibreto.id}
-        tamaño={currentLibreto.tamaño}
-        escala={currentLibreto.escala}
-        posicion={currentLibreto.posicion}
-        three={currentLibreto.three}
-        velocidadRotacion={currentLibreto.velocidadRotacion}
-        client:load
-      />
+      {libreto.map((libretoItem, mapIndex) => (
+        mapIndex === index && (
+          <div className={estilos.fade}>
+            <ReactThreeModel3DPrincipal
+              key={mapIndex}
+              url={libretoItem.glbSource}
+              tamaño={libretoItem.tamaño}
+              escala={libretoItem.escala}
+              posicion={libretoItem.posicion}
+              velocidadRotacion={libretoItem.velocidadRotacion}
+            />
+          </div>
+        )
+      ))}
       <button
         className={estilos.btn}
         onClick={handleOnClick}>
-        <img src="./svg/flechaSube.svg" alt="" style={{ rotate: '90deg' }} />
+        <img src="./svg/arrow.svg" alt="" style={{ rotate: '0deg', width:'66px', height:'66px' }} />
       </button>
     </div>
   );
