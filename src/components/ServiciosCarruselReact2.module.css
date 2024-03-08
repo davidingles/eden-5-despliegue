@@ -13,13 +13,12 @@
 
 .thumbnail,
 .thumbnail2 {
+  filter: brightness(1.2);
   border: solid 1px white;
   border-radius: .5rem;
-  width: 175px;
-  height: 175px;
+  width: 122px;
+  height: 122px;
   overflow: hidden;
-
-
 }
 
 .main {
@@ -41,21 +40,18 @@
   gap: 5rem;
 }
 
-.thumbnail {
-  border: rgb(247, 215, 87) solid 2px;
-  box-shadow: 1px 1px 2px 1px rgb(0 0 0 / 20%);
-}
 
 .thumbnail2 {
   /* transition: all .3s ease; */
   box-shadow: 1px 1px 12px 1px rgb(0 0 0 / 40%);
-  opacity: .3;
+  opacity: 1;
+  filter: grayscale(1) ;
   width: 111px;
   height: 111px;
 }
 
 .thumbnail2:hover {
-  border: rgb(247, 215, 87) solid 2px;
+  border: #fff solid 2px;
 }
 
 

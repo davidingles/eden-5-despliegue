@@ -55,6 +55,8 @@ const { title } = Astro.props
 			</div>
 			<!-- //?: header=================================== -->
 			<main>
+				<img class="imagen-de-fondo" src="/img/nave.jpg" alt="">
+
 				<div class='vid p-2 m-2'>
 					<slot />
 				</div>
@@ -92,6 +94,18 @@ const { title } = Astro.props
 				rgb(255, 255, 255),
 				rgb(222, 171, 18, 0.1)
 			);
+		}
+		.imagen-de-fondo{
+			
+			opacity: 0.4;
+			position: absolute;
+			z-index: 0;
+			overflow-y: auto;
+			min-width: 100%;
+			min-height: 100%;
+			filter: blur(6px) grayscale(0.5) brightness(0.5) contrast(1.5) saturate(0.5);
+			aspect-ratio: 16/9;
+			object-fit: cover;
 		}
 		html {
 			font-family: 'CircularStd', system-ui, sans-serif;

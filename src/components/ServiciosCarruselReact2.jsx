@@ -26,12 +26,6 @@ export function ServiciosCarruselReact2({ cielo2, nave, lunes, nav, video, naveT
     setIndiceSeleccionado(nuevoIndice);
     setImagenSeleccionada(imagenes[nuevoIndice]);
   };
-  const previous = () => {
-    nuevaImagenSeleccionada(indiceSeleccionado, imagenes, false);
-  };
-  const next = () => {
-    nuevaImagenSeleccionada(indiceSeleccionado, imagenes, true);
-  };
 
   return (
     <>
@@ -52,25 +46,15 @@ export function ServiciosCarruselReact2({ cielo2, nave, lunes, nav, video, naveT
                 alt={imagenSeleccionada}
               />
             </div>
-              <div className={`${estilos.botones__absolute}`}>
-                <button className='text-white backdrop-blur-sm border border-white  px-2 py-11 text-6xl h-11 bg-white bg-opacity-30 justify-center items-center flex flex-1 rounded-xl' onClick={() => { setAutoPlay(false); previous() }}>{'<'}</button>
-                <button className='text-white m-11 invisible flex flex-1 text-4xl justify-center' onClick={() => { setAutoPlay(!autoPlay) }} > {autoPlay === true ? 'STOP' : 'PLAY'}</button>
-                <button className='text-white border px-2 border-white backdrop-blur-sm py-11 text-6xl bg-white bg-opacity-30 justify-center items-center rounded-xl h-11 flex flex-1 ' onClick={() => { setAutoPlay(false); next() }}>{'>'}</button>
-              </div >
+
           </div>
           {/* BOTONES ================================== */}
           <div className='flex flex-col justify-center'>
-            <div className={`${estilos.botones__uno}`}>
-              <button className={`${estilos.btn} `} onClick={() => { setAutoPlay(false); previous() }}>{'<'}</button>
-              <button className={`${estilos.btn}`} onClick={() => { setAutoPlay(!autoPlay) }} > {autoPlay === true ? 'STOP' : 'PLAY'}</button>
-              <button className={`${estilos.btn} btn`} onClick={() => { setAutoPlay(false); next() }}>{'>'}</button>
-            </div >
-            {/* //THUMBANILS ================================== */}
             <div className={`${estilos.thumbnailContainer} flex flex-row gap-4`}>
               {imagenes2.map((imagen, index) => (
                 <div className='flex ' key={index}>
                   <img
-                    className={`object-cover m-2 md:m-0 w-[111px] h-[111px] rounded-lg estilos.thumbnail cursor-pointer ${index !== indiceSeleccionado ? estilos.thumbnail2 : ""}`}
+                    className={`object-cover m-2 md:m-0 w-[111px] h-[111px] rounded-lg ${estilos.thumbnail} cursor-pointer ${index !== indiceSeleccionado ? estilos.thumbnail2 : ""}`}
                     src={imagen}
                     alt="fabrica"
                     onClick={() => { setImagenSeleccionada(imagenes[index]); setIndiceSeleccionado(index); setAutoPlay(false) }} />
