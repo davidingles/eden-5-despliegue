@@ -6,6 +6,7 @@ import estilos from './ModelRotator.module.css'
 export default function ModelRotator({ libreto2 }) {
   const [index, setIndex] = useState(0);
   const [ultimoBoton, setUltimoBoton] = useState('derecha');
+  const [intervalActive, setIntervalActive] = useState(true);
 
   const isMobile = useMediaQuery({ query: '(max-width: 700px)' });
   const isLargeScreen = useMediaQuery({ query: '(min-width: 1500px)' });
@@ -13,18 +14,25 @@ export default function ModelRotator({ libreto2 }) {
   const handleOnClick = () => {
     setIndex((prevIndex) => (prevIndex + 1) % libreto2.length);
     setUltimoBoton('derecha');
+    setIntervalActive(false);
+    setTimeout(() => setIntervalActive(true), 32000);
   };
   const handleOnClickReverse = () => {
     setIndex((prevIndex) => ((prevIndex - 1 + libreto2.length) % libreto2.length));
     setUltimoBoton('izquierda');
+    setIntervalActive(false);
+    setTimeout(() => setIntervalActive(true), 32000);
   };
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % libreto2.length);
-    }, 8000);
+    let interval;
+    if (intervalActive) {
+      interval = setInterval(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % libreto2.length);
+      }, 8000);
+    }
     return () => clearInterval(interval);
-  }, [libreto2]);
+  }, [libreto2, intervalActive]);
 
   return (
     <div className={estilos.model}>

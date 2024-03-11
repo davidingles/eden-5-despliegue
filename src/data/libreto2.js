@@ -22,5 +22,12 @@ export const libreto2 = [
 		posicion: .0,
 		glbSource: '/glb/CANARA.glb',
 		velocidadRotacion: 6,
+	},
+	{
+		tamaño: 1,
+		escala: 1.2,
+		posicion: -.1,
+		glbSource: '/glb/PROSUR.glb',
+		velocidadRotacion: 6,
 	}
 ]
