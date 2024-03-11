@@ -17,6 +17,22 @@ export const books = [
 
 	},
 	{
+		id: 'embargos',
+		title: 'Bandeja con Cotas',
+		img: '/catalogo/render_embargos.png',
+		opinion: 'Bandeja automontable acotada.',
+		author: 'David Inglés',
+		categoria: 'Bandejas',
+		tamaño: 3,
+		escala: .2,
+		posicion: -.4,
+		glbSource: '/glb/embargos.glb',
+		three: 'embargos',
+		video: '/videos/montajes/video_embargo.webm',
+		scaleVideo: 1.5
+
+	},
+	{
 		id: 'v4G02870001_cazoletas',
 		title: 'Bandeja con Cotas',
 		img: '/catalogo/RenderEstucheCazoletas.png',
