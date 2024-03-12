@@ -4,7 +4,8 @@ import ReactThreeModel3DPrincipal from './ReactThreeModel3DPrincipal.jsx'
 import estilos from './ModelRotator.module.css'
 
 export default function ModelRotator({ libreto2 }) {
-  const [index, setIndex] = useState(0);
+  const randomIndex = Math.floor(Math.random() * libreto2.length);
+  const [index, setIndex] = useState(randomIndex);
   const [ultimoBoton, setUltimoBoton] = useState('derecha');
   const [intervalActive, setIntervalActive] = useState(true);
 
@@ -15,13 +16,13 @@ export default function ModelRotator({ libreto2 }) {
     setIndex((prevIndex) => (prevIndex + 1) % libreto2.length);
     setUltimoBoton('derecha');
     setIntervalActive(false);
-    setTimeout(() => setIntervalActive(true), 32000);
+    // setTimeout(() => setIntervalActive(true), 32000);
   };
   const handleOnClickReverse = () => {
     setIndex((prevIndex) => ((prevIndex - 1 + libreto2.length) % libreto2.length));
     setUltimoBoton('izquierda');
     setIntervalActive(false);
-    setTimeout(() => setIntervalActive(true), 32000);
+    // setTimeout(() => setIntervalActive(true), 32000);
   };
 
   useEffect(() => {

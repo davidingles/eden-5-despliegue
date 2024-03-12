@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import estilos from './menuReact.module.css';
-import { IconHome, IconContact, IconCatalogo, IconServices, IconNosotros } from './icons/IconHome';
+import { IconHome, IconContact, IconCatalogo, IconServices, IconNosotros, IconDownloads } from './icons/IconHome';
 
 const menu = [
 
@@ -29,7 +29,13 @@ const menu = [
     icon: 'catalogo',
     link: '/catalogo',
   },
+  {
+    title: 'Descargas',
+    icon: 'descargas',
+    link: '/descargas',
+  },
 ]
+
 
 const MenuReact = () => {
   const [currentPage, setCurrentPage] = useState('');
@@ -54,6 +60,7 @@ const MenuReact = () => {
             {item.icon === 'services' && <IconServices />}
             {item.icon === 'contact' && <IconContact />}
             {item.icon === 'catalogo' && <IconCatalogo />}
+            {item.icon === 'descargas' && <IconDownloads />}
           </div>
         </a>
       ))}

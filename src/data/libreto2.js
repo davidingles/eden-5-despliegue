@@ -29,5 +29,19 @@ export const libreto2 = [
 		posicion: -.1,
 		glbSource: '/glb/PROSUR.glb',
 		velocidadRotacion: 6,
+	},
+	{
+		tamaño: 1,
+		escala: 1,
+		posicion: -.1,
+		glbSource: '/glb/LONCHEMUR.glb',
+		velocidadRotacion: 6,
+	},
+	{
+		tamaño: 1,
+		escala: 1,
+		posicion: .1,
+		glbSource: '/glb/LONCHEMUR1.glb',
+		velocidadRotacion: 6,
 	}
 ]

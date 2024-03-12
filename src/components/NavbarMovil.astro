@@ -1,10 +1,12 @@
 ---
 import Logo from '@/components/icons/LogoAuxCompleto.astro'
-import IconHome from '@/components/icons/IconHome___.astro'
-import IconNosotros from '@/components/icons/IconNosotros.astro'
+// import IconHome from '@/components/icons/IconHome___.astro'
+// import IconNosotros from '@/components/icons/IconNosotros.astro'
 import IconServicios from '@/components/icons/IconServices.astro'
-import IconContact from './icons/IconContact.astro'
-import IconCatalogo from './icons/IconCatalogo.astro'
+// import IconContact from './icons/IconContact.astro'
+// import IconCatalogo from './icons/IconCatalogo.astro'
+import { IconHome, IconContact, IconCatalogo, IconServices, IconNosotros, IconDownloads } from './icons/IconHome';
+
 ---
 
 <nav class='nav'>
@@ -71,7 +73,7 @@ import IconCatalogo from './icons/IconCatalogo.astro'
 			</li>
 			<li class='dropdown__list'>
 				<a
-					href='/servicios2'
+					href='/servicios'
 					class='dropdown__link'
 				>
 					<div>
@@ -115,6 +117,21 @@ import IconCatalogo from './icons/IconCatalogo.astro'
 						class='dropdown__icon'
 					/> -->
 					<span class='dropdown__span'>Catálogo</span>
+				</a>
+			</li>
+			<li class='dropdown__list'>
+				<a
+					href='/descargas'
+					class='dropdown__link'
+				>
+					<div>
+						<IconDownloads />
+					</div>
+					<!-- <img
+						src='./assets/help.svg'
+						class='dropdown__icon'
+					/> -->
+					<span class='dropdown__span'>Descargas</span>
 				</a>
 			</li>
 		</ul>
