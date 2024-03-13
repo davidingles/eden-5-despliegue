@@ -40,7 +40,7 @@ export default function ModelRotator({ libreto2 }) {
       <button
         className={estilos.btn}
         onClick={handleOnClickReverse}>
-        <img src="./svg/arrow.svg" alt="" style={{ rotate: '-180deg', width: '66px', height: '66px' }} />
+        <img src="./svg/arrow.svg" alt="" style={{ rotate: '-180deg' }} />
       </button>
       {libreto2.map((libretoItem, mapIndex) => (
         mapIndex === index && (
@@ -60,7 +60,7 @@ export default function ModelRotator({ libreto2 }) {
       <button
         className={estilos.btn}
         onClick={handleOnClick}>
-        <img src="./svg/arrow.svg" alt="" style={{ rotate: '0deg', width: '66px', height: '66px' }} />
+        <img src="./svg/arrow.svg" alt="" style={{ rotate: '0deg' }} />
       </button>
     </div>
   );

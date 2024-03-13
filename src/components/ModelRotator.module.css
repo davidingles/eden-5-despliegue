@@ -45,19 +45,10 @@
 }
 
 .btn{
-  width: 222px;
-  height: 222px;
   margin: 22px;
   align-items: center;
-}
-
-@media screen and (max-width: 700px) {
-  .btn{
-    width: 111px;
-    height: 111px;
-    margin: 11px;
-    align-items: center;
-  }
+  width: 111px;
+  height: 111px;
 }
 
 .fade {
