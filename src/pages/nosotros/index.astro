@@ -19,28 +19,8 @@ const textos = [
 ]
 ---
 
-
-
-
 <Layout title='Sobre nosotros'>
 	<main class='flex flex-col gap-4'>
-		<div
-			class='barra  leading-8 text-white font-bold text-lg flex justify-center items-center w-full'
-		>
-			<h2>Políticas de Empresa</h2>
-			<a target="_blank" href="/Plan de Movilidad.pdf">
-				<img src="/plan de movilidad.png" alt="portada plan de movilidad">
-			</a>
-			<a target="_blank" href="/Plan de Movilidad.pdf">
-				<img src="/plan de movilidad.png" alt="portada plan de movilidad">
-			</a>
-			<a target="_blank" href="/Plan de Movilidad.pdf">
-				<img src="/plan de movilidad.png" alt="portada plan de movilidad">
-			</a>
-			<section class='flex flex-col md:flex-row pr-12'>
-				
-			</section>
-		</div>
 		<div
 			class='bodyIndex rounded-lg flex overflow-y-auto justify-center items-center'
 		>
@@ -58,28 +38,94 @@ const textos = [
 				textos={textos}
 			/>
 		</div>
+		<hr>
+		<div class='barra'>
+			<h2>Políticas de Empresa</h2>
+			<section class='section'>
+				<a
+					class='anchor'
+					target='_blank'
+					href='/Plan de Movilidad.pdf'
+				>
+					<img
+						src='/plan de movilidad.png'
+						alt='portada plan de movilidad'
+					/>
+					<p>Plan de Movilidad</p>
+				</a>
+				<a
+					class='anchor'
+					target='_blank'
+					href='/Plan de Movilidad.pdf'
+				>
+					<img
+						src='/plan de movilidad.png'
+						alt='portada plan de movilidad'
+					/>
+					<p>Plan de Movilidad</p>
+				</a>
+				<a
+					class='anchor'
+					target='_blank'
+					href='/Plan de Movilidad.pdf'
+				>
+					<img
+						src='/plan de movilidad.png'
+						alt='portada plan de movilidad'
+					/>
+					<p>Plan de Movilidad</p>
+				</a>
+			</section>
+			<section class='flex flex-col md:flex-row pr-12'></section>
+		</div>
 	</main>
 </Layout>
 
 <style>
-	.barra{
+	hr{
+		margin-top: 3rem;
+	}
+	.barra {
+		margin: 1rem 0;
+		padding: 1rem;
+		width: 100%;
+		height: 100%;
 		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		gap: 1rem;
-		background-color: rgb(156 163 175);
 		color: white;
-		font-weight: bold;
 		padding-inline: 1rem;
 	}
-	.barra h2{
+	.barra h2 {
 		font-size: 1.5rem;
-		color: black;
+		color: white;
+		margin: 1rem;
+		text-align: center;
 	}
-	.barra a{
+	.section {
+		display: flex;
+		flex-direction: row;
+		gap: 2rem;
+	}
+	.anchor {
 		padding: 0.5rem;
 		width: 80px;
 		height: 80px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin: 1rem;
 	}
-	.barra img{
+	.anchor p{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 1rem;
+	}
+	.barra img {
 		border-radius: 10%;
 		width: 100%;
 		height: 100%;
@@ -87,10 +133,8 @@ const textos = [
 		box-shadow: 2px 2px 9px 1px rgb(0 0 0 / 50%);
 		border: 2px solid white;
 	}
-	.barra img:hover{
+	.barra img:hover {
 		transform: translateY(-3px) scale(1.05);
 		transition: transform 0.5s;
 	}
 </style>
-
-

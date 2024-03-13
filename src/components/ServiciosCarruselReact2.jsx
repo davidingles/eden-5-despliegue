@@ -64,7 +64,7 @@ export function ServiciosCarruselReact2({ cielo2, nave, lunes, nav, video, naveT
           </div>
 
           <div className='flex flex-col justify-center'>
-            <div className={`${estilos.thumbnailContainer} flex flex-row gap-4`}>
+            <div className={`${estilos.thumbnailContainer} `}>
               {imagenes2.map((imagen, index) => (
                 <div className='flex relative' key={index}>
                   <img

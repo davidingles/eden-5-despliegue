@@ -18,6 +18,9 @@ export default function ModelRotator({ libreto2 }) {
     setIntervalActive(false);
     // setTimeout(() => setIntervalActive(true), 32000);
   };
+  const handleOnClick3D = () => {
+    setIntervalActive(false);
+  }
   const handleOnClickReverse = () => {
     setIndex((prevIndex) => ((prevIndex - 1 + libreto2.length) % libreto2.length));
     setUltimoBoton('izquierda');
@@ -42,21 +45,27 @@ export default function ModelRotator({ libreto2 }) {
         onClick={handleOnClickReverse}>
         <img src="./svg/arrow.svg" alt="" style={{ rotate: '-180deg' }} />
       </button>
-      {libreto2.map((libretoItem, mapIndex) => (
-        mapIndex === index && (
-          <div
-            key={mapIndex}
-            className={ultimoBoton === 'derecha' ? estilos.fade : estilos.fade2}>
-            <ReactThreeModel3DPrincipal
-              url={libretoItem.glbSource}
-              tamaño={libretoItem.tamaño}
-              escala={libretoItem.escala}
-              posicion={libretoItem.posicion}
-              velocidadRotacion={libretoItem.velocidadRotacion}
-            />
-          </div>
-        )
-      ))}
+      <div
+        onClick={handleOnClick3D}
+        className={estilos.model3D}
+      >
+        {libreto2.map((libretoItem, mapIndex) => (
+          mapIndex === index && (
+            <div
+              key={mapIndex}
+              className={ultimoBoton === 'derecha' ? estilos.fade : estilos.fade2}>
+              <ReactThreeModel3DPrincipal
+        
+                url={libretoItem.glbSource}
+                tamaño={libretoItem.tamaño}
+                escala={libretoItem.escala}
+                posicion={libretoItem.posicion}
+                velocidadRotacion={libretoItem.velocidadRotacion}
+              />
+            </div>
+          )
+        ))}
+      </div>
       <button
         className={estilos.btn}
         onClick={handleOnClick}>

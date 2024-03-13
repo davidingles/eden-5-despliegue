@@ -1,17 +1,12 @@
 ---
 import Logo from '@/components/icons/LogoAuxCompleto.astro'
-// import IconHome from '@/components/icons/IconHome___.astro'
-// import IconNosotros from '@/components/icons/IconNosotros.astro'
-import IconServicios from '@/components/icons/IconServices.astro'
-// import IconContact from './icons/IconContact.astro'
-// import IconCatalogo from './icons/IconCatalogo.astro'
-import { IconHome, IconContact, IconCatalogo, IconNosotros } from './icons/IconHome';
+
+import { IconHome, IconContact, IconCatalogo, IconNosotros, IconServices } from './icons/IconHome';
 
 ---
 
 <nav class='nav'>
 	<div class='nav__container'>
-		<!-- <h1 class='nav__title logo-animation3'>Auxiliar Manipuladora del Cartón</h1> -->
 		<h1 class='nav__title logo-animation3 w-36'>
 			<Logo />
 		</h1>
@@ -48,10 +43,7 @@ import { IconHome, IconContact, IconCatalogo, IconNosotros } from './icons/IconH
 					<div class='dropdown__icon'>
 						<IconHome />
 					</div>
-					<!-- <img
-						src='./assets/house.svg'
-						class='dropdown__icon'
-					/> -->
+
 					<span class='dropdown__span'>Inicio</span>
 				</a>
 			</li>
@@ -64,10 +56,7 @@ import { IconHome, IconContact, IconCatalogo, IconNosotros } from './icons/IconH
 					<div>
 						<IconNosotros />
 					</div>
-					<!-- <img
-						src='./assets/projects.svg'
-						class='dropdown__icon'
-					/> -->
+
 					<span class='dropdown__span'>Nosotros</span>
 				</a>
 			</li>
@@ -77,12 +66,9 @@ import { IconHome, IconContact, IconCatalogo, IconNosotros } from './icons/IconH
 					class='dropdown__link'
 				>
 					<div>
-						<IconServicios />
+						<IconServices />
 					</div>
-					<!-- <img
-						src='./assets/projects.svg'
-						class='dropdown__icon'
-					/> -->
+
 					<span class='dropdown__span'>Servicios</span>
 				</a>
 			</li>
@@ -112,24 +98,9 @@ import { IconHome, IconContact, IconCatalogo, IconNosotros } from './icons/IconH
 					<div>
 						<IconCatalogo />
 					</div>
-					<!-- <img
-						src='./assets/help.svg'
-						class='dropdown__icon'
-					/> -->
 					<span class='dropdown__span'>Catálogo</span>
 				</a>
 			</li>
-			<!-- <li class='dropdown__list'>
-				<a
-					href='/descargas'
-					class='dropdown__link'
-				>
-					<div>
-						<IconDownloads />
-					</div>
-					<span class='dropdown__span'>Descargas</span>
-				</a>
-			</li> -->
 		</ul>
 	</div>
 </nav>
