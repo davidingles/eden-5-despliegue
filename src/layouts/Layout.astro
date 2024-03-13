@@ -79,7 +79,6 @@ const { title } = Astro.props
 
 	<style is:global>
 		:root {
-			--accent: 136, 58, 234;
 			--auxi1: rgb(222, 171, 18);
 			--auxi2: rgb(0, 128, 72);
 			--degraUno: linear-gradient(
@@ -95,21 +94,27 @@ const { title } = Astro.props
 				rgb(222, 171, 18, 0.1)
 			);
 		}
-		.imagen-de-fondo{
-			
+		.imagen-de-fondo {
 			opacity: 0.4;
 			position: absolute;
-			z-index: 0;
+			z-index: -0;
 			overflow-y: auto;
 			min-width: 100%;
 			min-height: 100%;
-			filter: blur(6px) grayscale(0.5) brightness(0.5) contrast(1.5) saturate(0.5);
+			filter: blur(6px) grayscale(0.5) brightness(0.5) contrast(1.5)
+				saturate(0.5);
 			aspect-ratio: 16/9;
 			object-fit: cover;
 		}
+		.vid {
+			position: relative;
+			height: calc(100vh - 222px);
+		}
+
+
 		html {
 			font-family: 'CircularStd', system-ui, sans-serif;
-			background-color: #222;
+			/* background-color: #222; */
 			color: white;
 			background-size: 224px;
 			scroll-behavior: smooth;
@@ -156,10 +161,6 @@ const { title } = Astro.props
 			}
 		}
 
-		.light .body {
-			background-color: white;
-			color: rgb(55, 55, 55);
-		}
 		.asideMenu {
 			height: calc(100vh - 104px);
 			background-color: #222;
@@ -171,9 +172,6 @@ const { title } = Astro.props
 			height: calc(100vh - 104px);
 			background-color: #333;
 			scrollbar-width: thin;
-		}
-		.light .mainMenu {
-			background-color: rgb(245 245 245);
 		}
 
 		.bordeRojo {
@@ -239,9 +237,6 @@ const { title } = Astro.props
 			font-weight: 900;
 			font-style: normal;
 			font-display: swap;
-		}
-		.vid {
-			height: calc(100vh - 222px);
 		}
 	</style>
 </html>

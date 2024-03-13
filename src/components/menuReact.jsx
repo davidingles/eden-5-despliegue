@@ -29,11 +29,11 @@ const menu = [
     icon: 'catalogo',
     link: '/catalogo',
   },
-  {
-    title: 'Descargas',
-    icon: 'descargas',
-    link: '/descargas',
-  },
+  // {
+  //   title: 'Descargas',
+  //   icon: 'descargas',
+  //   link: '/descargas',
+  // },
 ]
 
 

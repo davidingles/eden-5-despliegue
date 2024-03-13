@@ -1,26 +1,46 @@
 ---
 import Layout from '@/layouts/Layout.astro'
-
 ---
 
-
-<Layout>
-  <div class="marco">
-    <main class="main"><a target="_blank" href="/Plan de Movilidad.pdf">PDF</a></main>
-  </div>
+<Layout title='Descargas'>
+	<div class='marco'>
+		<a
+			class='anchor'
+			target='_blank'
+			href='/Plan de Movilidad.pdf'
+			><img
+				class='imagen'
+				src='/plan de movilidad.png'
+				alt='imagen de portada del plan de movilidad'
+			/></a
+		>
+	</div>
 </Layout>
 
 <style>
-  .marco{
-    position: absolute;
-    z-index: 99;
-    width: 111px;
-    height: 111px;
-    background-color: red;
+	.marco {
+		background-color: #ff0;
+		padding: 1rem;
+		margin: .5rem;
+		border: 1px solid #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		width: 100%;
+		height: 100%;
+		overflow-y: hidden;
+		position: absolute;
+		z-index: 99;
+	}
+  .anchor {
+    width: 100%;
+    height: 100%;
   }
-  .main{
-    position: relative;
-    background-color: orange;
-  }
+	.imagen {
+		object-fit: contain;
+		padding: 3rem;
+		width: 100%;
+		height: 100%;
+	}
 </style>
-
